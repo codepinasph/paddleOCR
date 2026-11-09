@@ -1,0 +1,14 @@
+{
+  "name": "receiptflow-paddleocr-poc",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["api", "web"],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c blue,green \"npm run dev -w api\" \"npm run dev -w web\"",
+    "build": "npm run build -w api && npm run build -w web",
+    "typecheck": "npm run typecheck -w api && npm run typecheck -w web",
+    "test": "npm run test -w api"
+  },
+  "devDependencies": {"concurrently": "^9.2.0", "typescript": "^5.8.3"},
+  "engines": {"node": ">=20.11"}
+}
